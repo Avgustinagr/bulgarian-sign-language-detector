@@ -1,0 +1,1 @@
+Google Colab where I first tried out Mediapipe hand landmark finder - https://colab.research.google.com/drive/128BuCgfpEAD9CPDVjw9rDlQBV7Uw0sff?usp=sharing
