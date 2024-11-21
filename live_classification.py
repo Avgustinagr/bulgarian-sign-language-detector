@@ -16,14 +16,10 @@ options = vision.HandLandmarkerOptions(base_options=base_options,
 detector = vision.HandLandmarker.create_from_options(options)
 lms_to_keep = [ 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
-rfc = pickle.load(open('./model_ada.pkl', 'rb'))
-# print (model_dict)
-# rfc = model_dict['model']
+rfc = pickle.load(open('./ada_opt.pkl', 'rb'))
+
 
 def get_hand_landmarks_sample(hand):
-
-    # TO DO: What if more than one hands were found? 
-    # TO DO: What if the handedness is not 'Left' - flip HERE
     handedness = hand.handedness[0][0].display_name
     hand_landmarks = hand.hand_landmarks[0];
 
@@ -176,16 +172,6 @@ while True:
         landmarks_df.append(hand_landmarks_sample)
         movement_df.append(hand_movement)
         sample = hand_landmarks_sample + [iou1, iou2, iou3, get_bounding_box_ratio(x1, y1, x2, y2)];
-        # if None not in sample:
-        #     confidence_scores = rfc.predict_proba([sample])
-        #     if np.max(confidence_scores, axis=1) > 0.3:
-        #         prediction = rfc.predict([sample])
-        #         predicted_character = prediction[0]
-        #         print (predicted_character)
-
-        #         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 0), 4)
-        #         cv2.putText(frame, predicted_character, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 0, 0), 3,
-        #                     cv2.LINE_AA)
         if None not in sample:
             # confidence_scores = rfc.predict_proba([sample])
             # if np.max(confidence_scores, axis=1) > 0.3:
