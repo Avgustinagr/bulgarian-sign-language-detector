@@ -1,5 +1,5 @@
 # bulgarian-sign-language-detector
-A model that can detect Bulgarian sign language alphabet (in real time)
+A model that can (almost) detect Bulgarian sign language alphabet (in real time)
 
 <sup>pip freeze in ./requirements.txt (scikit-learn==1.3.2)</sup>
 <h3>Heads-up: </h3>
